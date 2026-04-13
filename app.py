@@ -40,9 +40,6 @@ h4 {color: #facc15;}
 st.title("🚀 MeetMind AI")
 st.markdown("Turn meetings into structured insights instantly")
 
-# METRICS
-st.metric("Words", len(st.session_state.text.split()) if st.session_state.text else 0)
-
 # LAYOUT
 col1, col2 = st.columns(2)
 
@@ -58,7 +55,10 @@ with col1:
     if st.button("Clear"):
         st.session_state.text = ""
 
-    text = st.text_area("Paste Meeting Transcript", height=250, value=st.session_state.text)
+    # WORD COUNT
+    text = st.text_area("Paste Meeting Transcript", height=250, value=st.session_state.text, key="input_text_area")
+    st.session_state.text = text  # keep session state in sync
+    st.metric("Words", len(text.split()))
 
     tone = st.selectbox("Choose Style", ["Professional", "Simple", "Detailed"])
 
