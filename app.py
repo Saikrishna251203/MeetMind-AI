@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+import os
+load_dotenv()
 import streamlit as st
 from groq import Groq
 import re
@@ -7,7 +10,7 @@ import time
 st.set_page_config(page_title="MeetMind AI", layout="wide")
 
 # API
-client = Groq(api_key="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")
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # SESSION STATE
 if "text" not in st.session_state:
