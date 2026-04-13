@@ -49,7 +49,7 @@ with col1:
 
     # SAMPLE BUTTON
     if st.button("Use Sample"):
-        st.session_state.text = "Team discussed project deadline. Rahul will complete backend. Deadline April 20."
+        st.session_state.text = "Team discussed project deadline.  Rahul will complete backend. Deadline April 20."
 
     # CLEAR BUTTON
     if st.button("Clear"):
